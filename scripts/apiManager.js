@@ -3,7 +3,6 @@ const searchUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
 const detailsUrl = "https://api.themoviedb.org/3/movie/";
 const jsonUrl = "http://localhost:5002/";
 
-// https://api.themoviedb.org/3/movie/343611?api_key=
 
 const API = {
   search(keyword) {

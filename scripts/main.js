@@ -17,26 +17,27 @@ searchBtn.addEventListener("click", () => {
 
   const searchStack = (input) => {
     return API.search(input)
-    .then(movie => {
-       const dbid = `${movie.results[0].id}`
-      API.searchWithId(dbid)
-        .then(movieById => {
-          console.log(movieById)
-          const movieObject = {
-            title: movieById.title,
-            date: movieById.release_date,
-            dbid: `${movieById.id}`
-          }
-          API.saveToJSON(movieObject, "movies")
-        })
-    })
+      .then(movie => {
+        const dbid = `${movie.results[0].id}`
+        API.searchWithId(dbid)
+          .then(movieById => {
+            console.log(movieById)
+            const movieObject = {
+              title: movieById.title,
+              date: movieById.release_date,
+              dbid: `${movieById.id}`
+            }
+            API.saveToJSON(movieObject, "movies")
+          })
+      })
   }
 
   // searchStack(string);
-  
+
 })
+
 API.search("magnolia")
-  .then(movie =>  console.log(movie))
+  .then(movie => console.log(movie))
 // API.searchWithId("343611")
 //   .then(movie => console.log(movie))
 
